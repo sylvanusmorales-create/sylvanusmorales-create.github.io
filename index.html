@@ -475,7 +475,6 @@ nav {
   letter-spacing: 0.04em;
 }
 
-
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -642,6 +641,101 @@ footer {
 }
 
 .footer-r a:hover { color: var(--vert); }
+
+/* ── RESPONSIVE MOBILE ── */
+@media (max-width: 768px) {
+
+  nav {
+    padding: 14px 20px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  #home {
+    padding: 100px 20px 60px;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-nom .ligne1,
+  .hero-nom .ligne2 {
+    font-size: 3.8rem;
+  }
+
+  .hero-right {
+    align-items: center;
+  }
+
+  .photo-frame {
+    width: 220px;
+    height: 280px;
+  }
+
+  .qr-wrap {
+    width: 100%;
+  }
+
+  .s-inner {
+    padding: 0 20px;
+  }
+
+  .s-wrap {
+    padding: 56px 0;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .proj-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .s-titre {
+    font-size: 2rem;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    padding: 24px 20px;
+  }
+
+  .hero-btns {
+    flex-direction: column;
+  }
+
+  .btn-p, .btn-s {
+    text-align: center;
+  }
+
+  .hero-desc {
+    max-width: 100%;
+  }
+
+  .hero-poste {
+    font-size: 0.6rem;
+  }
+
+}
 
 </style>
 </head>
