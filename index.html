@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sylvanus Deguenon</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300&family=DM+Mono:wght@300;400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --vert:   #4dd9ac;
+  --vert2:  #2ec49a;
+  --noir:   #080808;
+  --noir2:  #0f0f0f;
+  --noir3:  #141414;
+  --noir4:  #1a1a1a;
+  --blanc:  #f2f0ec;
+  --gris:   #6a6a6a;
+  --gris2:  #3a3a3a;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--noir);
+  color: var(--blanc);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 60px;
+  background: rgba(8,8,8,0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid #161616;
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--blanc);
+}
+
+.nav-logo span { color: var(--vert); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: var(--noir2);
+  border: 1px solid #1e1e1e;
+  border-radius: 50px;
+  padding: 5px 7px;
+}
+
+.nav-links a {
+  padding: 7px 17px;
+  font-size: 0.75rem;
+  color: var(--gris);
+  border-radius: 50px;
+  transition: all 0.22s;
+  letter-spacing: 0.04em;
+  font-weight: 400;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: var(--noir4);
+  color: var(--blanc);
+}
+
+#home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 110px 60px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  align-items: center;
+  gap: 80px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--vert);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 28px; height: 1px;
+  background: var(--vert);
+  opacity: 0.5;
+}
+
+.hero-nom { margin-bottom: 10px; }
+
+.hero-nom .ligne1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 7rem;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 0.9;
+  color: var(--blanc);
+  display: block;
+  letter-spacing: -0.02em;
+}
+
+.hero-nom .ligne2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 7rem;
+  font-weight: 700;
+  line-height: 0.9;
+  color: var(--blanc);
+  display: block;
+  letter-spacing: -0.02em;
+}
+
+.hero-poste {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  color: var(--gris);
+  text-transform: uppercase;
+  margin-top: 18px;
+  margin-bottom: 10px;
+}
+
+.badge-stage {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  background: rgba(77,217,172,0.07);
+  border: 1px solid rgba(77,217,172,0.25);
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+
+.badge-stage .dot-s {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--vert);
+  flex-shrink: 0;
+}
+
+.badge-stage span {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  color: var(--vert);
+  text-transform: uppercase;
+}
+
+.hero-desc {
+  font-size: 0.9rem;
+  color: var(--gris);
+  line-height: 1.9;
+  max-width: 440px;
+  margin-bottom: 36px;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.btn-p {
+  padding: 12px 26px;
+  background: var(--vert);
+  color: #000;
+  font-size: 0.75rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  letter-spacing: 0.06em;
+  transition: background 0.2s;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.btn-p:hover { background: var(--vert2); }
+
+.btn-s {
+  padding: 12px 26px;
+  background: transparent;
+  color: var(--blanc);
+  font-size: 0.75rem;
+  font-family: 'Outfit', sans-serif;
+  border: 1px solid #282828;
+  cursor: pointer;
+  border-radius: 4px;
+  letter-spacing: 0.06em;
+  transition: border-color 0.2s;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.btn-s:hover { border-color: #555; }
+
+.hero-socials {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.hero-socials a {
+  width: 36px; height: 36px;
+  border: 1px solid #1e1e1e;
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gris);
+  transition: all 0.2s;
+}
+
+.hero-socials a:hover {
+  border-color: var(--vert);
+  color: var(--vert);
+}
+
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.photo-frame {
+  width: 300px;
+  height: 370px;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: grayscale(10%);
+}
+
+.qr-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 13px 16px;
+  background: var(--noir2);
+  border: 1px solid #1a1a1a;
+  border-radius: 6px;
+}
+
+.qr-wrap img {
+  width: 54px; height: 54px;
+  display: block;
+  filter: invert(1) brightness(0.55);
+  flex-shrink: 0;
+}
+
+.qr-info { display: flex; flex-direction: column; gap: 4px; }
+
+.qr-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.56rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gris2);
+}
+
+.qr-sub {
+  font-size: 0.68rem;
+  color: var(--gris);
+}
+
+.sep { width:100%; height:1px; background:#141414; }
+
+.s-wrap { width:100%; padding: 88px 0; }
+.s-wrap.alt { background: var(--noir2); }
+
+.s-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.s-head { margin-bottom: 52px; }
+.s-head.center { text-align: center; }
+
+.s-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.24em;
+  color: var(--vert);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.s-titre {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: var(--blanc);
+  line-height: 1.1;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.svc-card {
+  background: var(--noir3);
+  border: 1px solid #1c1c1c;
+  padding: 28px 22px;
+  border-radius: 8px;
+  transition: border-color 0.22s;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.svc-card:hover { border-color: rgba(77,217,172,0.3); }
+
+.svc-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--vert);
+  opacity: 0.6;
+}
+
+.svc-titre {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--blanc);
+  line-height: 1.25;
+}
+
+.svc-desc {
+  font-size: 0.77rem;
+  color: var(--gris);
+  line-height: 1.75;
+  flex: 1;
+}
+
+.svc-tags {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 6px;
+  padding-top: 14px;
+  border-top: 1px solid #1c1c1c;
+}
+
+.svc-tag {
+  font-size: 0.65rem;
+  color: var(--gris2);
+  letter-spacing: 0.04em;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.about-desc {
+  font-size: 0.9rem;
+  color: var(--gris);
+  line-height: 1.95;
+  margin-bottom: 28px;
+}
+
+.approche-list {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.approche-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 15px 18px;
+  background: var(--noir3);
+  border: 1px solid #1c1c1c;
+  border-radius: 6px;
+}
+
+.approche-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--vert);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.approche-txt {
+  font-size: 0.8rem;
+  color: var(--gris);
+  line-height: 1.6;
+}
+
+.stats-col {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.stat-card {
+  padding: 24px 26px;
+  background: var(--noir3);
+  border: 1px solid #1c1c1c;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.stat-nb {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--vert);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.stat-info { display: flex; flex-direction: column; gap: 3px; }
+
+.stat-label {
+  font-size: 0.82rem;
+  color: var(--blanc);
+  font-weight: 400;
+}
+
+.stat-sub {
+  font-size: 0.68rem;
+  color: var(--gris);
+  letter-spacing: 0.04em;
+}
+
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.sk-card {
+  background: var(--noir3);
+  border: 1px solid #1c1c1c;
+  padding: 24px 20px;
+  border-radius: 8px;
+  transition: border-color 0.22s;
+}
+
+.sk-card:hover { border-color: #333; }
+
+.sk-titre {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  color: var(--vert);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.sk-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+
+.sk-tag {
+  padding: 5px 11px;
+  border: 1px solid #242424;
+  font-size: 0.65rem;
+  color: var(--gris);
+  border-radius: 3px;
+  letter-spacing: 0.03em;
+  transition: all 0.2s;
+}
+
+.sk-tag:hover { border-color: var(--vert); color: var(--vert); }
+
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.proj-card {
+  background: var(--noir3);
+  border: 1px solid #1c1c1c;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.22s, transform 0.22s;
+  display: flex;
+  flex-direction: column;
+}
+
+.proj-card:hover {
+  border-color: rgba(77,217,172,0.22);
+  transform: translateY(-3px);
+}
+
+.proj-img {
+  height: 170px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.proj-img svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.proj-body {
+  padding: 20px 20px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 8px;
+}
+
+.proj-cat {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--vert);
+}
+
+.proj-nom {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--blanc);
+  line-height: 1.2;
+}
+
+.proj-desc {
+  font-size: 0.75rem;
+  color: var(--gris);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.proj-footer {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid #1e1e1e;
+  display: flex;
+  gap: 10px;
+}
+
+.proj-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  font-size: 0.63rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  transition: all 0.2s;
+  font-family: 'DM Mono', monospace;
+}
+
+.proj-link.demo {
+  background: var(--vert);
+  color: #000;
+}
+
+.proj-link.demo:hover { background: var(--vert2); }
+
+.proj-link.code {
+  border: 1px solid #242424;
+  color: var(--gris);
+}
+
+.proj-link.code:hover { border-color: #444; color: var(--blanc); }
+
+footer {
+  background: #000;
+  padding: 28px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #111;
+}
+
+.footer-l {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--gris2);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.footer-r { display: flex; gap: 22px; }
+
+.footer-r a {
+  font-size: 0.65rem;
+  color: var(--gris2);
+  letter-spacing: 0.06em;
+  transition: color 0.2s;
+}
+
+.footer-r a:hover { color: var(--vert); }
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">S<span>.</span>Deguenon</div>
+  <div class="nav-links">
+    <a href="#home" class="active">Home</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+  </div>
+  <div style="width:120px"></div>
+</nav>
+
+<section id="home">
+  <div class="hero-inner">
+
+    <div>
+      <p class="hero-eyebrow">Portfolio · Développeur</p>
+
+      <div class="hero-nom">
+        <span class="ligne1">Sylvanus</span>
+        <span class="ligne2">Deguenon</span>
+      </div>
+
+      <p class="hero-poste">Développeur Web &amp; Logiciel · L2/SIL — UATM/GASA-FORMATION</p>
+
+      <div class="badge-stage">
+        <span class="dot-s"></span>
+        <span>Disponible · Recherche de stage académique</span>
+      </div>
+
+      <p class="hero-desc">
+        Étudiant en L2 SIL, je conçois des interfaces web soignées,
+        modélise des bases de données et développe des applications
+        en Java, C++ et Python. Du schéma UML au déploiement —
+        je couvre l'ensemble du cycle.
+      </p>
+
+      <div class="hero-btns">
+        <a href="#projects" class="btn-p">Voir mes projets</a>
+        <a href="mailto:sylvanusmorales@gmail.com" class="btn-s">Me contacter</a>
+      </div>
+
+      <div class="hero-socials">
+        <a href="https://github.com/sylvanusmorales-create" target="_blank" title="GitHub">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844a9.59 9.59 0 012.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        </a>
+        <a href="mailto:sylvanusmorales@gmail.com" title="Email">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="photo-frame">
+        <img src="photo.png" alt="Sylvanus Deguenon" onerror="this.style.opacity='0'">
+      </div>
+      <div class="qr-wrap">
+        <img src="mon-qrcode.png" alt="QR Code" onerror="this.style.display='none'">
+        <div class="qr-info">
+          <span class="qr-label">Scanner pour contact</span>
+          <span class="qr-sub">sylvanusmorales@gmail.com</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<div class="s-wrap alt" id="services">
+  <div class="s-inner">
+    <div class="s-head center">
+      <p class="s-eyebrow">Ce que je fais</p>
+      <h2 class="s-titre">Services</h2>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card">
+        <span class="svc-num">01</span>
+        <h3 class="svc-titre">Développement Web</h3>
+        <p class="svc-desc">Interfaces HTML/CSS/JS propres, responsives et performantes, centrées sur l'expérience utilisateur.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">HTML · CSS · JavaScript</span>
+          <span class="svc-tag">Design responsive</span>
+        </div>
+      </div>
+      <div class="svc-card">
+        <span class="svc-num">02</span>
+        <h3 class="svc-titre">Applications Java</h3>
+        <p class="svc-desc">Développement d'applications orientées objet avec Java et NetBeans, de l'architecture à la livraison.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Java · POO</span>
+          <span class="svc-tag">Algorithmique avancée</span>
+        </div>
+      </div>
+      <div class="svc-card">
+        <span class="svc-num">03</span>
+        <h3 class="svc-titre">Bases de données</h3>
+        <p class="svc-desc">Modélisation Merise, conception UML, requêtes SQL avancées et administration PostgreSQL.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">PostgreSQL · SQL</span>
+          <span class="svc-tag">Merise · Normalisation</span>
+        </div>
+      </div>
+      <div class="svc-card">
+        <span class="svc-num">04</span>
+        <h3 class="svc-titre">Modélisation Système</h3>
+        <p class="svc-desc">Analyse et conception de systèmes : diagrammes UML complets, MLDR, dictionnaires de données.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">UML · draw.io</span>
+          <span class="svc-tag">Architecture SI</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<div class="s-wrap" id="about">
+  <div class="s-inner">
+    <div class="s-head">
+      <p class="s-eyebrow">Qui suis-je</p>
+      <h2 class="s-titre">About Me</h2>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p class="about-desc">
+          Étudiant en L2 SIL à UATM/GASA-FORMATION à Cotonou, Bénin.
+          Passionné par la construction de systèmes informatiques complets,
+          je travaille aussi bien sur la conception que sur le développement.
+          Mon approche est méthodique, orientée qualité et centrée sur les
+          besoins réels des utilisateurs. Je suis actuellement à la recherche
+          d'un stage académique pour mettre mes compétences en pratique.
+        </p>
+        <div class="approche-list">
+          <div class="approche-item">
+            <span class="approche-num">01</span>
+            <span class="approche-txt">Analyser les besoins et définir l'architecture du système</span>
+          </div>
+          <div class="approche-item">
+            <span class="approche-num">02</span>
+            <span class="approche-txt">Concevoir des interfaces claires, propres et accessibles</span>
+          </div>
+          <div class="approche-item">
+            <span class="approche-num">03</span>
+            <span class="approche-txt">Livrer des solutions fiables, documentées et maintenables</span>
+          </div>
+        </div>
+      </div>
+      <div class="stats-col">
+        <div class="stat-card">
+          <span class="stat-nb">L2</span>
+          <div class="stat-info">
+            <span class="stat-label">Niveau actuel</span>
+            <span class="stat-sub">SIL · UATM/GASA-FORMATION</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-nb">03+</span>
+          <div class="stat-info">
+            <span class="stat-label">Projets livrés</span>
+            <span class="stat-sub">Web, mobile, bases de données</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-nb">06+</span>
+          <div class="stat-info">
+            <span class="stat-label">Technologies</span>
+            <span class="stat-sub">Java, SQL, HTML/CSS/JS, C++...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<div class="s-wrap alt" id="skills">
+  <div class="s-inner">
+    <div class="s-head center">
+      <p class="s-eyebrow">Compétences techniques</p>
+      <h2 class="s-titre">Skills</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="sk-card">
+        <p class="sk-titre">Frontend</p>
+        <div class="sk-tags">
+          <span class="sk-tag">HTML5</span>
+          <span class="sk-tag">CSS3</span>
+          <span class="sk-tag">JavaScript</span>
+          <span class="sk-tag">SVG</span>
+          <span class="sk-tag">Responsive</span>
+        </div>
+      </div>
+      <div class="sk-card">
+        <p class="sk-titre">Backend & Langages</p>
+        <div class="sk-tags">
+          <span class="sk-tag">Java</span>
+          <span class="sk-tag">C / C++</span>
+          <span class="sk-tag">Python</span>
+          <span class="sk-tag">POO</span>
+          <span class="sk-tag">Algorithmique</span>
+        </div>
+      </div>
+      <div class="sk-card">
+        <p class="sk-titre">Données</p>
+        <div class="sk-tags">
+          <span class="sk-tag">PostgreSQL</span>
+          <span class="sk-tag">SQL</span>
+          <span class="sk-tag">Merise</span>
+          <span class="sk-tag">UML</span>
+          <span class="sk-tag">Normalisation</span>
+        </div>
+      </div>
+      <div class="sk-card">
+        <p class="sk-titre">Outils</p>
+        <div class="sk-tags">
+          <span class="sk-tag">VS Code</span>
+          <span class="sk-tag">NetBeans</span>
+          <span class="sk-tag">pgAdmin</span>
+          <span class="sk-tag">Dev-C++</span>
+          <span class="sk-tag">WAMP</span>
+          <span class="sk-tag">draw.io</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<div class="s-wrap" id="projects">
+  <div class="s-inner">
+    <div class="s-head center">
+      <p class="s-eyebrow">Réalisations</p>
+      <h2 class="s-titre">Projects</h2>
+    </div>
+    <div class="proj-grid">
+
+      <div class="proj-card">
+        <div class="proj-img">
+          <svg viewBox="0 0 400 170" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="170" fill="#0d0d0d"/>
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#1a1a1a"/>
+                <stop offset="100%" stop-color="#0a0a0a"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="170" fill="url(#g1)"/>
+            <rect x="180" y="20" width="40" height="130" rx="4" fill="#111" stroke="#222" stroke-width="1"/>
+            <rect x="183" y="20" width="10" height="130" rx="2" fill="#c0392b" opacity="0.7"/>
+            <rect x="196" y="20" width="10" height="130" rx="2" fill="#f2f0ec" opacity="0.5"/>
+            <rect x="209" y="20" width="10" height="130" rx="2" fill="#2980b9" opacity="0.6"/>
+            <circle cx="90" cy="85" r="35" fill="none" stroke="#222" stroke-width="1"/>
+            <circle cx="310" cy="85" r="35" fill="none" stroke="#222" stroke-width="1"/>
+            <text x="200" y="158" font-family="serif" font-size="11" fill="#4dd9ac" opacity="0.5" text-anchor="middle" letter-spacing="8">BARBER SHOP</text>
+          </svg>
+        </div>
+        <div class="proj-body">
+          <p class="proj-cat">Web · Commerce</p>
+          <h3 class="proj-nom">Barber Shop</h3>
+          <p class="proj-desc">Site vitrine pour un salon de coiffure. Interface sombre et élégante, entièrement responsive, réalisée en HTML/CSS/JS pur.</p>
+          <div class="proj-footer">
+            <a href="https://sylvanusmorales-create.github.io/barber" target="_blank" class="proj-link demo">↗ Demo</a>
+            <a href="https://github.com/sylvanusmorales-create/barber" target="_blank" class="proj-link code">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-img">
+          <svg viewBox="0 0 400 170" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="170" fill="#0a0a0a"/>
+            <defs>
+              <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#111"/>
+                <stop offset="100%" stop-color="#0d0d0d"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="170" fill="url(#g2)"/>
+            <rect x="130" y="45" width="65" height="80" rx="3" fill="#141414" stroke="#2a2a2a" stroke-width="1"/>
+            <rect x="205" y="45" width="65" height="80" rx="3" fill="#141414" stroke="#2a2a2a" stroke-width="1"/>
+            <line x1="197" y1="45" x2="197" y2="125" stroke="#4dd9ac" stroke-width="1.5" opacity="0.4"/>
+            <line x1="140" y1="65" x2="185" y2="65" stroke="#333" stroke-width="1.5"/>
+            <line x1="140" y1="75" x2="185" y2="75" stroke="#333" stroke-width="1.5"/>
+            <line x1="140" y1="85" x2="175" y2="85" stroke="#333" stroke-width="1.5"/>
+            <line x1="140" y1="95" x2="185" y2="95" stroke="#333" stroke-width="1.5"/>
+            <line x1="215" y1="65" x2="260" y2="65" stroke="#333" stroke-width="1.5"/>
+            <line x1="215" y1="75" x2="260" y2="75" stroke="#333" stroke-width="1.5"/>
+            <line x1="215" y1="85" x2="250" y2="85" stroke="#333" stroke-width="1.5"/>
+            <line x1="215" y1="95" x2="260" y2="95" stroke="#333" stroke-width="1.5"/>
+            <circle cx="70" cy="85" r="25" fill="none" stroke="#4dd9ac" stroke-width="1" opacity="0.3"/>
+            <text x="70" y="90" font-family="serif" font-size="18" fill="#4dd9ac" opacity="0.4" text-anchor="middle">✦</text>
+            <circle cx="330" cy="85" r="25" fill="none" stroke="#4dd9ac" stroke-width="1" opacity="0.3"/>
+            <text x="330" y="90" font-family="serif" font-size="18" fill="#4dd9ac" opacity="0.4" text-anchor="middle">✦</text>
+            <text x="200" y="158" font-family="serif" font-size="11" fill="#4dd9ac" opacity="0.5" text-anchor="middle" letter-spacing="6">PLATEFORME ÉDUCATIVE</text>
+          </svg>
+        </div>
+        <div class="proj-body">
+          <p class="proj-cat">Web · Éducation</p>
+          <h3 class="proj-nom">Plateforme Éducative</h3>
+          <p class="proj-desc">Site éducatif couvrant Java, UML, SQL et Architecture des systèmes. Design cohérent avec système CSS partagé entre modules.</p>
+          <div class="proj-footer">
+            <a href="https://sylvanusmorales-create.github.io/plateforme-educative/" target="_blank" class="proj-link demo">↗ Demo</a>
+            <a href="https://github.com/sylvanusmorales-create/plateforme-educative" target="_blank" class="proj-link code">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-img">
+          <svg viewBox="0 0 400 170" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="170" fill="#0a0a0a"/>
+            <defs>
+              <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#0f110d"/>
+                <stop offset="100%" stop-color="#0a0a0a"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="170" fill="url(#g3)"/>
+            <ellipse cx="200" cy="72" rx="38" ry="52" fill="none" stroke="#2a3a2a" stroke-width="1.5" transform="rotate(-15 200 72)"/>
+            <ellipse cx="200" cy="72" rx="38" ry="52" fill="none" stroke="#4dd9ac" stroke-width="0.8" opacity="0.2" transform="rotate(15 200 72)"/>
+            <line x1="200" y1="115" x2="200" y2="148" stroke="#2a3a2a" stroke-width="2"/>
+            <circle cx="145" cy="75" r="12" fill="#1a2a1a" stroke="#2a3a2a" stroke-width="1"/>
+            <circle cx="255" cy="75" r="12" fill="#1a2a1a" stroke="#2a3a2a" stroke-width="1"/>
+            <circle cx="118" cy="95" r="8" fill="#4dd9ac" opacity="0.15"/>
+            <circle cx="282" cy="55" r="8" fill="#4dd9ac" opacity="0.15"/>
+            <line x1="40" y1="130" x2="360" y2="130" stroke="#1a1a1a" stroke-width="1"/>
+            <text x="200" y="158" font-family="serif" font-size="11" fill="#4dd9ac" opacity="0.5" text-anchor="middle" letter-spacing="6">AGROSHOP BÉNIN</text>
+          </svg>
+        </div>
+        <div class="proj-body">
+          <p class="proj-cat">Web · Agroalimentaire</p>
+          <h3 class="proj-nom">Agroshop Bénin</h3>
+          <p class="proj-desc">Boutique en ligne agroalimentaire pour le marché béninois. Interface e-commerce HTML/CSS/JS responsive et moderne.</p>
+          <div class="proj-footer">
+            <a href="https://sylvanusmorales-create.github.io/agroshop-benin/" target="_blank" class="proj-link demo">↗ Demo</a>
+            <a href="https://github.com/sylvanusmorales-create/agroshop-benin" target="_blank" class="proj-link code">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-l">© 2026 Sylvanus Deguenon · Cotonou, Bénin</span>
+  <div class="footer-r">
+    <a href="mailto:sylvanusmorales@gmail.com">sylvanusmorales@gmail.com</a>
+    <a href="https://github.com/sylvanusmorales-create" target="_blank">GitHub</a>
+  </div>
+</footer>
+
+<script>
+var navLinks = document.querySelectorAll('.nav-links a');
+var targets  = ['home','services','about','skills','projects'];
+
+window.addEventListener('scroll', function() {
+  var scrollY = window.scrollY + 140;
+  targets.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    if (scrollY >= el.offsetTop && scrollY < el.offsetTop + el.offsetHeight) {
+      navLinks.forEach(function(a) {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
